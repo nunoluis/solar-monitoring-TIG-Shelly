@@ -14,3 +14,15 @@ the file need their permissions altered for grafana to read them:
   then allow the grafana group to read the files
   sudo chmod 640 /etc/ssl/grafana
  
+## Small title ##
+
+normal text
+
+**bold text** 
+```
+http://SHELLY_IP/emeter/0
+```
+
+```
+code
+```
