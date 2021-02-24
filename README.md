@@ -67,11 +67,11 @@ Feb 24 22:59:49 raspberrypi grafana-server[4320]: t=2021-02-24T22:59:49+0000 lvl
 
 to check the grafana log file in case something goes wrong:
 ```
-cat /usr/log/grafana/grafana.log | grep "narrow search here"
+cat /var/log/grafana/grafana.log | grep "narrow search here"
 ```
 in my case as I was having trouble with the pem file permissions:
 ```
-cat /usr/var/grafana/grafana.log | grep ".pem"
+cat /var/log/grafana/grafana.log | grep ".pem"
 ```
 
 ## Small title ##
