@@ -86,3 +86,22 @@ http://SHELLY_IP/emeter/0
 ```
 code
 ```
+
+Generating SSL certificate to encrypt communication between grafana in host and client from outside the home network by using Let's Encrypt and Certbot
+Followed direction in letsencrypt website and used snap to install it in the raspberry pi.
+````
+IMPORTANT NOTES:
+ - Congratulations! Your certificate and chain have been saved at:
+   /etc/letsencrypt/live/fishermanshouse.duckdns.org/fullchain.pem
+   Your key file has been saved at:
+   /etc/letsencrypt/live/fishermanshouse.duckdns.org/privkey.pem
+   Your certificate will expire on 2021-05-23. To obtain a new or
+   tweaked version of this certificate in the future, simply run
+   certbot again. To non-interactively renew *all* of your
+   certificates, run "certbot renew"
+ - If you like Certbot, please consider supporting our work by:
+
+   Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+   Donating to EFF:                    https://eff.org/donate-le
+ ````
+```
