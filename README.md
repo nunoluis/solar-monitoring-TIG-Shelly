@@ -3,6 +3,17 @@ telegraf to ping Shelly devices, store in influxdb and visualize with grafana, a
 
 Access Grafana via HTTPS from outside home network
 
+Add Raspberry iO Buster to Raspberry Pi 3B+, steps and add Wifi file (with country code!) for direct ssh connection, change password of Pi user right away, update everything in OS, Assign fixed IP on home network
+
+Install InfluxDB, create database SHELLYDB, create admin user and then create telegraf user with admin rights to save Shellies data
+
+Install telegraf. Generate ssl certificates for secure telegraf:InfluxDB communication via port 8086
+
+configure telegraf config file to save only shelly data, not the internal CPU stuff
+
+install grafana, make it secure (no change to add new users).
+
+Run grafana via [https] via port 3000
 generated SSL certificates with let's encrypt, following their instructions with snap
 
 copied the * .pem files into /etc/ssl/grafana and edit the grafana.ini config file in the [https] line (search with Ctrl + W) to point to location of certificate file and private key
