@@ -14,7 +14,28 @@ configure telegraf config file to save only shelly data, not the internal CPU st
 install grafana, make it secure (no change to add new users).
 
 Run grafana via [https] via port 3000
-generated SSL certificates with let's encrypt, following their instructions with snap
+
+## SSL certificate ##
+
+**Generating SSL certificate to encrypt communication between grafana in host and client from outside the home network by using Let's Encrypt and Certbot.**
+
+Followed instructions in letsencrypt website (https://certbot.eff.org/lets-encrypt/debianbuster-other) and used snap to install it in the raspberry pi (Raspbian 10 - Buster).
+
+````
+IMPORTANT NOTES:
+ - Congratulations! Your certificate and chain have been saved at:
+   /etc/letsencrypt/live/fishermanshouse.duckdns.org/fullchain.pem
+   Your key file has been saved at:
+   /etc/letsencrypt/live/fishermanshouse.duckdns.org/privkey.pem
+   Your certificate will expire on 2021-05-23. To obtain a new or
+   tweaked version of this certificate in the future, simply run
+   certbot again. To non-interactively renew *all* of your
+   certificates, run "certbot renew"
+ - If you like Certbot, please consider supporting our work by:
+
+   Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+   Donating to EFF:                    https://eff.org/donate-le
+````
 
 copied the * .pem files into /etc/ssl/grafana and edit the grafana.ini config file in the [https] line (search with Ctrl + W) to point to location of certificate file and private key
 
@@ -49,7 +70,7 @@ https_port = 443
 # The public facing domain name used to access grafana from a browser
 ```
 
-the file need their permissions altered for grafana to read them, by changing permission for all files in directory (more instructions at https://medium.com/grafana-tutorials/adding-ssl-to-grafana-eb4ab634e43f):
+the file needs the permissions altered for grafana to read them, by changing permission for all files in directory (more instructions at https://medium.com/grafana-tutorials/adding-ssl-to-grafana-eb4ab634e43f):
 ```
 sudo chown grafana:grafana /etc/ssl/grafana
 ```
@@ -85,6 +106,11 @@ in my case as I was having trouble with the pem file permissions:
 cat /var/log/grafana/grafana.log | grep ".pem"
 ```
 
+**Renew SSL certificate**
+
+Need to have port 80 (http) open and pointed to RPi.
+
+
 ## Small title ##
 
 normal text
@@ -96,23 +122,4 @@ http://SHELLY_IP/emeter/0
 
 ```
 code
-```
-
-Generating SSL certificate to encrypt communication between grafana in host and client from outside the home network by using Let's Encrypt and Certbot
-Followed direction in letsencrypt website and used snap to install it in the raspberry pi.
-````
-IMPORTANT NOTES:
- - Congratulations! Your certificate and chain have been saved at:
-   /etc/letsencrypt/live/fishermanshouse.duckdns.org/fullchain.pem
-   Your key file has been saved at:
-   /etc/letsencrypt/live/fishermanshouse.duckdns.org/privkey.pem
-   Your certificate will expire on 2021-05-23. To obtain a new or
-   tweaked version of this certificate in the future, simply run
-   certbot again. To non-interactively renew *all* of your
-   certificates, run "certbot renew"
- - If you like Certbot, please consider supporting our work by:
-
-   Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
-   Donating to EFF:                    https://eff.org/donate-le
- ````
 ```
