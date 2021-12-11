@@ -1,4 +1,7 @@
 # solar-monitoring-TIG-Shelly
+
+(from https://github.com/githubbyte/Shelly-EM-Monitor-Telegraf-Influx-Grafana and https://www.uiblog.it/2019/10/configuriamo-tig-influxdb-su-raspbian-buster-1-parte/)
+
 telegraf to ping Shelly devices, store in influxdb and visualize with grafana, all inside a raspberry pi 3 B+
 
 Access Grafana via HTTPS from outside home network
